@@ -1,0 +1,9 @@
+{
+    "SAP HANA Database Explorer.ShowXsAdvancedConnections": true,
+     "files.exclude": {
+          "**/.gitignore": false,
+          "**/.git": true,
+          "**/.vscode": true
+      },
+      "actions": []    
+}

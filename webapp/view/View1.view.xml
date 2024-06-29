@@ -1,0 +1,71 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+          controllerName="emc.hr.payroll.controller.View1">
+    <Page title="{i18n>XTIT_VIEW1}">
+        <headerContent>
+            <Button icon="sap-icon://action" press="onNext"></Button>
+        </headerContent>
+        <content>
+            <SearchField id="idSF" search="onSearch" liveChange="onSearch"></SearchField>
+            <List id="idLST" mode="SingleSelectMaster" delete="onDelete" 
+
+                  growingThreshold="15" growing="true"
+                  selectionChange="onFruitSelect" 
+                  items="{ path: '/ProductSet' }">
+                <headerToolbar>
+                    <Toolbar >
+                        <ToolbarSpacer ></ToolbarSpacer>
+                        <Button icon="sap-icon://delete" press="onDeleteItems" />
+                    </Toolbar>
+                </headerToolbar>
+                <items >
+                    <ObjectListItem intro="{NAME}" title="{PRODUCT_ID}"
+                                    number="{PRICE}" numberUnit="{CURRENCY_CODE}"
+                                    icon="sap-icon://product">
+                    <attributes> 
+                    <ObjectAttribute title="Type" text="{CATEGORY}"></ObjectAttribute>
+                    </attributes>
+                    </ObjectListItem>
+                    <!-- <DisplayListItem value="A natural antibiotic" label="Apple"></DisplayListItem>
+                    <StandardListItem title="Orange" description="The most rich source of Vitamin C" icon="https://cdn.pixabay.com/photo/2020/04/04/01/33/navel-5000527_960_720.png"></StandardListItem>
+                    <InputListItem>
+                        <HBox>
+                            <Label text="What is the best fruit for skin" />
+                            <Input />
+                        </HBox>
+                    </InputListItem>
+                    <CustomListItem >
+                        <Label text="Do you want COD?"/>
+                        <Switch />
+                    </CustomListItem>
+                    <ObjectListItem title="Banana" intro="A great source of potasium" icon="https://www.keventer.com/uploads/cms/actual/1534399458_1514290476_b-n.png"
+                    number="150 INR" numberUnit="Per dozon">
+                        <attributes>
+                            <ObjectAttribute text="Yellow-Green" title="Color"></ObjectAttribute>
+                            <ObjectAttribute text="Dozon" title="Unit"></ObjectAttribute>
+                        </attributes>
+                        <firstStatus>
+                            <ObjectStatus text="Out of Stock" state="Warning"></ObjectStatus>
+                        </firstStatus>
+                    </ObjectListItem>
+                    <FeedListItem icon="https://upload.wikimedia.org/wikipedia/commons/6/68/Joe_Biden_presidential_portrait.jpg" 
+                    sender="Joe Biden" text="Hey! Anubhav how you doing"
+                    timestamp="Fri 7th May 2021" ></FeedListItem>
+                    <ActionListItem press="onItemClick" text="Order Now!!">
+                    </ActionListItem> -->
+                </items>            
+            </List>
+        </content>
+        <footer>
+            <Toolbar width="100%" id="toolbar">
+                <content>
+                <ToolbarSpacer id="spacer1"/>
+                <Button xmlns="sap.m" id="button2" activeIcon="sap-icon://accidental-leave" 
+                icon="sap-icon://accidental-leave" tooltip="Add New Product" press="onAdd"></Button>
+                </content>
+            </Toolbar>
+        </footer>
+
+        <!-- <Button text="Go to" icon="sap-icon://arrow-right"
+            press="onNext" /> -->
+    </Page>
+</mvc:View>          

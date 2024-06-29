@@ -1,0 +1,6 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+          controllerName="emc.hr.payroll.controller.Empty">
+    <Page title="Empty View" showNavButton="true" navButtonPress="onBack">
+        <Image src="https://sm.mashable.com/mashable_in/seo/default/8-years-of-the-avengers-how-joss-whedons-risk-became-crucial_5z9w.jpg" width="100%" height="100%" />
+    </Page>
+</mvc:View>         

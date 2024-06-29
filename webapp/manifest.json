@@ -1,0 +1,117 @@
+{
+    "_version": "1.9.0",
+    "sap.app":{
+        "id":"emc.hr.payroll",
+        "description": "{{APP_TITLE}}",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "type": "application",
+        "title": "{{APP_DESCRIPTION}}",
+        "i18n": "i18n/i18n.properties",
+        "dataSources": {
+            "danteService":{
+                "uri": "/sap/opu/odata/sap/ZJUNE_19062024_SRV/",
+                "type" : "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        }        
+    },
+    "sap.ui":{
+        "technology": "UI5",
+        "icons": {
+            "icon": "sap-icon://home"
+        },
+        "deviceTypes":{
+                        "desktop": true,
+                        "phone": true,
+                        "tablet": true
+        }
+    },
+    "sap.ui5":{
+        "dependencies": {
+            "minUI5Version": "1.87.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.table": {}
+            }
+        },
+        "rootView":{
+            "id": "idAppView",
+            "type": "XML",
+            "viewName": "emc.hr.payroll.view.App"
+        },
+        "routing": {
+            "config":{
+                "viewPath": "emc.hr.payroll.view",
+                "viewType": "XML",
+                "controlId": "appCon",
+                "clearControlAggregation": true
+            },
+            "routes": [{
+                "name": "master",
+                "pattern": "",
+                "target": ["joe","biden"]
+            },{
+                "name": "detail",
+                "pattern": "fruits/{fruitId}",
+                "target": ["joe","modi"]
+            },{
+                "name": "add",
+                "pattern": "AddProduct",
+                "target": ["joe","london"]
+            }],
+            "targets": {
+                "joe": {
+                    "viewName": "View1",
+                    "controlAggregation": "masterPages"
+                },
+                "biden":{
+                    "viewName": "Empty",
+                    "controlAggregation": "detailPages"
+                },
+                "modi":{
+                    "viewName": "View2",
+                    "controlAggregation": "detailPages"
+                },
+                "london":{
+                    "viewName": "Add",
+                    "controlAggregation": "detailPages"
+                }
+
+            }
+
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "library": {
+            "css": "css/mystyle.css"
+        },
+        "models": {
+            "i18n":{
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "local":{
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/mockdata/fruits.json"
+            },
+            "":{
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings":{
+
+                },
+
+                "dataSource": "danteService",
+                "preload": true
+            }
+
+
+        }
+
+    }
+}

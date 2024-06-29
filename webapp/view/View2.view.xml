@@ -1,0 +1,136 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+          xmlns:core="sap.ui.core"
+          controllerName="emc.hr.payroll.controller.View2">
+    <Page title="View 2" showNavButton="true" navButtonPress="onBack">
+        <!-- <Button text="Back" icon="sap-icon://arrow-left"
+            press="onBack" /> -->
+        <content>
+            <!-- <ObjectHeader intro="{healthBenefit}" title="{name}" icon="{image}"
+            number="{price}" numberUnit="{curr}"></ObjectHeader> -->
+
+            <ObjectHeader intro="{DESCRIPTION}" title="{PRODUCT_ID}" icon="sap-icon://product"
+            number="{PRICE}" numberUnit="{CURRENCY_CODE}"></ObjectHeader>
+
+            <IconTabBar>
+                <items>
+                    <IconTabFilter icon="sap-icon://warning" text="More Info">
+                        <core:Fragment fragmentName="emc.hr.payroll.fragments.moreInfo" type="XML" />
+                        <core:Fragment fragmentName="emc.hr.payroll.fragments.supplierInfo" type="XML" />
+                    </IconTabFilter>
+
+
+                    <IconTabFilter iconColor="Positive" icon="sap-icon://supplier" text="Orders">
+                        <!-- the following 'To_Order' mapping is going to pull the record autoamtically 
+                        based on item selection no controller code required because pf association -->
+                        <Table items="{To_Orders}" id="idTab">
+                        <!-- <Table items="" id="idTab"> -->
+                            <headerToolbar>
+                                <Toolbar>
+                                    <ToolbarSpacer ></ToolbarSpacer>
+                                    <Button icon="sap-icon://filter" press="onFilter" />
+                                </Toolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column>
+                                    <header>
+                                        <Text text="Order ID" />
+                                    </header>
+                                </Column>
+                                <Column>
+                                    <header>
+                                        <Text text="Buyer ID" />
+                                    </header>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <header>
+                                        <Text text="Buyer Name" />
+                                    </header>
+                                </Column>
+                                <Column minScreenWidth="Tablet">
+                                    <header>
+                                        <Text text="Gross Amount" />
+                                    </header>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <Text text="{SO_ID}" />
+                                    <Text text="{BUYER_ID}" />
+                                    <Text text="{BUYER_NAME}" />
+                                    <Text text="{GROSS_AMOUNT} {CURRENCY_CODE}"/>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </IconTabFilter>
+
+
+                    <!-- <IconTabFilter iconColor="Positive" icon="sap-icon://supplier" text="Supplier">
+                        <Table items="{/supplier}" id="idTab">
+                            <headerToolbar>
+                                <Toolbar>
+                                    <ToolbarSpacer ></ToolbarSpacer>
+                                    <Button icon="sap-icon://filter" press="onFilter" />
+                                </Toolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column>
+                                    <header>
+                                        <Text text="Name" />
+                                    </header>
+                                </Column>
+                                <Column>
+                                    <header>
+                                        <Text text="City" />
+                                    </header>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <header>
+                                        <Text text="Since When" />
+                                    </header>
+                                </Column>
+                                <Column minScreenWidth="Tablet">
+                                    <header>
+                                        <Text text="Contact Person" />
+                                    </header>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <Text text="{name}" />
+                                    <Input value="{city}" showValueHelp="true" valueHelpRequest="onF4Help"/>
+                                    <Text text="{sinceWhen}" />
+                                    <Link text="{person}" press="onLinkPress"></Link>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </IconTabFilter> -->
+
+
+                    <IconTabFilter iconColor="Negative" icon="sap-icon://home" text="Cities">
+                        <Select items="{/cities}">
+                            <core:Item text="{cityName}" key="{cityName}" />
+                        </Select>
+                        <ComboBox items="{/cities}">
+                            <core:Item text="{cityName}" key="{cityName}" />
+                        </ComboBox>
+                        <MultiComboBox items="{/cities}">
+                            <core:Item text="{cityName}" key="{cityName}" />
+                        </MultiComboBox>
+                    </IconTabFilter>
+
+
+
+                </items>
+            </IconTabBar>
+        </content>
+        <footer>
+            <Toolbar >
+                <content>
+                    <ToolbarSpacer ></ToolbarSpacer>
+                    <Button text="Order" press="onOrder" type="Emphasized" />
+                    <Button text="Cancel" press="onCancel" type="Reject" />
+                </content>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>         
