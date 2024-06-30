@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.2"
+metadata:
+  name: ex_35-x
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: S4D
+          url: http://122.162.240.164:8021
+        app:
+          name: ZZ_29062024
+          description: Fiori app deployment
+          package: ZDEMO_DANTE
+          transport: S4DK901063
+        exclude:
+          - /test/
